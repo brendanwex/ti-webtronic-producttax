@@ -34,7 +34,7 @@ class Extension extends BaseExtension
          */
         Menus::extendFormFields(function ($form, $model, $context) {
 
-            if (!$model instanceof Menus_model)
+            if (!$model instanceof MenusModel)
                 return;
 
             $form->addFields([
