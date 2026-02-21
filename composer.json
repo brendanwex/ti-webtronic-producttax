@@ -1,0 +1,53 @@
+{
+    "name": "webtronicie/ti-webtronic-producttax",
+    "type": "tastyigniter-package",
+    "description": "Add product tax rate percentage to individual products.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Webtronic"
+        }
+    ],
+    "keywords": [
+        "tastyigniter",
+        "tax",
+        "menu"
+    ],
+    "require": {
+        "tastyigniter/core": "^v4.0",
+        "tastyigniter/ti-ext-cart": "^4.0"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "WebtronicIE\\ProductTax\\\\": "src/"
+        }
+    },
+
+    "extra": {
+        "tastyigniter-extension": {
+            "code": "webtronicie.producttax",
+            "name": "Webtronic Product Tax",
+            "icon": {
+                "image": "fa fa-percent",
+                "backgroundColor": "#fc0",
+                "color": "#000000"
+            },
+            "homepage": "https://webtronic.ie/"
+        },
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true,
+            "composer/installers": true
+        },
+        "sort-packages": true
+    }
+
+}
