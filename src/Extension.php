@@ -1,9 +1,12 @@
 <?php
+declare(strict_types=1);
+
 namespace WebtronicIE\ProductTax;
 
 use Igniter\System\Classes\BaseExtension;
 use Admin\Models\Menus_model;
 use Admin\Controllers\Menus;
+use Override;
 
 class Extension extends BaseExtension
 {
