@@ -1,7 +1,7 @@
 <?php
 namespace WebtronicIE\ProductTax;
 
-use System\Classes\BaseExtension;
+use Igniter\System\Classes\BaseExtension;
 use Admin\Models\Menus_model;
 use Admin\Controllers\Menus;
 
