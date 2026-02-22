@@ -5,6 +5,7 @@ namespace WebtronicIE\ProductTax;
 
 use Igniter\System\Classes\BaseExtension;
 use Igniter\Cart\Models\Menu as Menus_model;
+use Igniter\Cart\Http\Controllers\Menus;
 class Extension extends BaseExtension
 {
 
