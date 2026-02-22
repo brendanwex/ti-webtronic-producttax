@@ -4,8 +4,8 @@ declare(strict_types=1);
 namespace WebtronicIE\ProductTax;
 
 use Igniter\System\Classes\BaseExtension;
-use Admin\Controllers\Menus;
-use Igniter\Cart\Models\Menus_model;
+use Igniter\Admin\Controllers\Menus;
+use Igniter\Admin\Models\Menus as Menus_model;
 
 class Extension extends BaseExtension
 {
