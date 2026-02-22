@@ -42,13 +42,8 @@ class Extension extends BaseExtension
         });
 
 
-        Menus::extendFormFields(function ($form, $model, $context) {
+        Menus_model::extendFormFields(function ($form, $model, $context) {
 
-            if (!$model instanceof Menus_model)
-                return;
-
-            if (!$form->getController() instanceof Menus)
-                return;
 
             $form->addTabFields([
                 'vat_rate' => [
@@ -57,7 +52,6 @@ class Extension extends BaseExtension
                     'span'  => 'full',
                     'tab'   => 'VAT',
                     'context' => ['create', 'edit'],
-                    'modelScope' => false,
                 ],
             ]);
 
