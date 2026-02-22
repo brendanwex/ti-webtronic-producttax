@@ -43,7 +43,7 @@ public function boot()
         $form->addTabFields([
             'vat_rate' => [
                 'label' => 'VAT Rate',
-                'type'  => 'float',
+                'type'  => 'number',
                 'span'  => 'full',
                 'tab'   => 'VAT',
             ],
