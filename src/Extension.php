@@ -4,65 +4,55 @@ declare(strict_types=1);
 namespace WebtronicIE\ProductTax;
 
 use Igniter\System\Classes\BaseExtension;
-use Igniter\Cart\Http\Controllers\Menus;
+use Igniter\Admin\Controllers\Menus;
 use Igniter\Cart\Models\Menu as Menus_model;
 
 class Extension extends BaseExtension
 {
-    public function boot()
-    {
 
 
-        /*
-         |---------------------------------------------
-         | Extend Menu Model
-         |---------------------------------------------
-         */
+public function boot()
+{
+    /*
+     |---------------------------------------------
+     | Extend Model
+     |---------------------------------------------
+     */
 
+    Menus_model::extend(function ($model) {
 
-        Menus_model::extend(function ($model) {
+        $model->mergeFillable(['vat_rate']);
 
-            $model->mergeFillable([
-                'vat_rate'
-            ]);
+        $model->mergeCasts([
+            'vat_rate' => 'float',
+        ]);
 
-            $model->mergeCasts([
-                'vat_rate' => 'float',
-            ]);
-
-            // Make visible in API
-            //$model->addVisible(['vat_rate']);
-            //$model->makeVisible(['vat_rate']);
-
-            //$model->save();
-
-            $model->saving(function ($model) {
-                logger('Saving: '.$model->vat_rate);
-            });
+        $model->saving(function ($model) {
+            logger('Saving VAT: '.$model->vat_rate);
         });
+    });
 
 
-        Menus::extend(function ($controller) {
+    /*
+     |---------------------------------------------
+     | Extend Controller Form
+     |---------------------------------------------
+     */
 
-            $controller->bindEvent('form.extendFields', function ($form) {
+    Menus::extendFormFields(function ($form, $model, $context) {
 
-                if (!$form->model instanceof \Igniter\Cart\Models\Menu) {
-                    return;
-                }
+        if (!$model instanceof Menus_model) {
+            return;
+        }
 
-                $form->addTabFields([
-                    'vat_rate' => [
-                        'label' => 'VAT Rate',
-                        'type'  => 'number',
-                        'span'  => 'full',
-                        'tab'   => 'VAT',
-                    ],
-                ]);
-            });
-
-        });
-
-
-    }
-
+        $form->addTabFields([
+            'vat_rate' => [
+                'label' => 'VAT Rate',
+                'type'  => 'number',
+                'span'  => 'full',
+                'tab'   => 'tab_general',
+            ],
+        ]);
+    });
+}
 }
