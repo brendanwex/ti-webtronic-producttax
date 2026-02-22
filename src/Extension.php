@@ -37,15 +37,21 @@ class Extension extends BaseExtension
             if (!$model instanceof Menus_model)
                 return;
 
+            if (!$form->getController() instanceof Menus)
+                return;
+
             $form->addFields([
                 'vat_rate' => [
                     'label' => 'VAT Rate',
                     'type'  => 'number',
                     'span'  => 'full',
                     'tab'   => 'tab_general',
-                    'priority' => 4
                 ],
             ]);
+
+            $model->saving(function ($model) {
+                logger('Saving: '.$model->vat_rate);
+            });
         });
     }
 
