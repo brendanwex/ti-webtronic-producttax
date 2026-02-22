@@ -4,21 +4,26 @@ declare(strict_types=1);
 namespace WebtronicIE\ProductTax;
 
 use Igniter\System\Classes\BaseExtension;
-//use Igniter\Admin\Controllers\Menus;
+use Igniter\Cart\Http\Controllers\Menus;
 use Igniter\Cart\Models\Menu as Menus_model;
 
 class Extension extends BaseExtension
 {
     public function boot()
     {
+
+
         /*
          |---------------------------------------------
          | Extend Menu Model
          |---------------------------------------------
          */
+
         Menus_model::extend(function ($model) {
 
             // Allow saving
+
+
             $model->addFillable(['vat_rate']);
 
             // Make visible in API
@@ -26,10 +31,6 @@ class Extension extends BaseExtension
             $model->makeVisible(['vat_rate']);
         });
 
-        /*
-         |---------------------------------------------
-         | Add Field To Admin Form
-         |---------------------------------------------
 
         Menus::extendFormFields(function ($form, $model, $context) {
 
@@ -44,7 +45,7 @@ class Extension extends BaseExtension
                     'tab'   => 'General',
                 ],
             ]);
-        });  */
+        });
     }
 
 }
