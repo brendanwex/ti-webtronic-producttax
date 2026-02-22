@@ -30,7 +30,7 @@ class Extension extends BaseExtension
             //$model->addVisible(['vat_rate']);
             //$model->makeVisible(['vat_rate']);
 
-            $model->save();
+            //$model->save();
 
             $model->saving(function ($model) {
                 logger('Saving: '.$model->vat_rate);
