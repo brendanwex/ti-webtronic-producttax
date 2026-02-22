@@ -55,7 +55,9 @@ class Extension extends BaseExtension
                     'label' => 'VAT Rate',
                     'type'  => 'number',
                     'span'  => 'full',
-                    'tab'   => 'tab_general',
+                    'tab'   => 'VAT',
+                    'context' => ['create', 'edit'],
+                    'modelScope' => false,
                 ],
             ]);
 
