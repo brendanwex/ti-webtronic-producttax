@@ -26,6 +26,10 @@ class Extension extends BaseExtension
                 'vat_rate'
             ]);
 
+            $model->mergeCasts([
+                'vat_rate' => 'float',
+            ]);
+
             // Make visible in API
             //$model->addVisible(['vat_rate']);
             //$model->makeVisible(['vat_rate']);
@@ -46,7 +50,7 @@ class Extension extends BaseExtension
             if (!$form->getController() instanceof Menus)
                 return;
 
-            $form->addFields([
+            $form->addTabFields([
                 'vat_rate' => [
                     'label' => 'VAT Rate',
                     'type'  => 'number',
