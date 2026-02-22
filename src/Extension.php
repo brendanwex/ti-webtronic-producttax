@@ -42,21 +42,27 @@ class Extension extends BaseExtension
         });
 
 
-        Menus_model::extendFormFields(function ($form, $model, $context) {
+        Menus::extend(function ($controller) {
 
+            $controller->bindEvent('form.extendFields', function ($form) {
 
-            $form->addTabFields([
-                'vat_rate' => [
-                    'label' => 'VAT Rate',
-                    'type'  => 'number',
-                    'span'  => 'full',
-                    'tab'   => 'VAT',
-                    'context' => ['create', 'edit'],
-                ],
-            ]);
+                if (!$form->model instanceof \Igniter\Cart\Models\Menu) {
+                    return;
+                }
 
+                $form->addTabFields([
+                    'vat_rate' => [
+                        'label' => 'VAT Rate',
+                        'type'  => 'number',
+                        'span'  => 'full',
+                        'tab'   => 'VAT',
+                    ],
+                ]);
+            });
 
         });
+
+
     }
 
 }
