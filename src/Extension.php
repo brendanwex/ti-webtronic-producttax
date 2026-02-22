@@ -40,9 +40,10 @@ class Extension extends BaseExtension
             $form->addFields([
                 'vat_rate' => [
                     'label' => 'VAT Rate',
-                    'type'  => 'percentage',
+                    'type'  => 'number',
                     'span'  => 'full',
-                    'tab'   => 'General',
+                    'tab'   => 'tab_general',
+                    'priority' => 4
                 ],
             ]);
         });
