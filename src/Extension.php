@@ -10,44 +10,51 @@ class Extension extends BaseExtension
 {
 
 
-public function boot()
-{
-    /*
-     |---------------------------------------------
-     | Extend Model
-     |---------------------------------------------
-     */
+    public function boot()
+    {
+        /*
+         |---------------------------------------------
+         | Extend Model
+         |---------------------------------------------
+         */
 
-    Menus_model::extend(function ($model) {
+        Menus_model::extend(function ($model) {
 
-        $model->mergeFillable(['vat_rate']);
+            $model->mergeFillable(['vat_rate']);
 
-        $model->mergeCasts([
-            'vat_rate' => 'float',
-        ]);
+            // Force attribute persistence on save
+            $model->saving(function ($model) {
 
-        $model->saving(function ($model) {
-            logger('Saving VAT: '.$model->vat_rate);
+                if (request()->has('Menu')) {
+                    $data = request()->input('Menu');
+
+                    if (isset($data['vat_rate'])) {
+                        $model->vat_rate = $data['vat_rate'];
+                    }
+                }
+
+            });
+
+
         });
-    });
 
 
-    /*
-     |---------------------------------------------
-     | Extend Controller Form
-     |---------------------------------------------
-     */
+        /*
+         |---------------------------------------------
+         | Extend Controller Form
+         |---------------------------------------------
+         */
 
-    Menus::extendFormFields(function ($form, $model, $context) {
+        Menus::extendFormFields(function ($form, $model, $context) {
 
-        $form->addTabFields([
-            'vat_rate' => [
-                'label' => 'VAT Rate',
-                'type'  => 'number',
-                'span'  => 'full',
-                'tab'   => 'VAT',
-            ],
-        ]);
-    });
-}
+            $form->addTabFields([
+                'vat_rate' => [
+                    'label' => 'VAT Rate',
+                    'type'  => 'number',
+                    'span'  => 'full',
+                    'tab'   => 'VAT',
+                ],
+            ]);
+        });
+    }
 }
