@@ -29,6 +29,10 @@ class Extension extends BaseExtension
             // Make visible in API
             //$model->addVisible(['vat_rate']);
             //$model->makeVisible(['vat_rate']);
+
+            $model->saving(function ($model) {
+                logger('Saving: '.$model->vat_rate);
+            });
         });
 
 
@@ -49,9 +53,7 @@ class Extension extends BaseExtension
                 ],
             ]);
 
-            $model->saving(function ($model) {
-                logger('Saving: '.$model->vat_rate);
-            });
+
         });
     }
 
