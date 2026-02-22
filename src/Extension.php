@@ -4,9 +4,8 @@ declare(strict_types=1);
 namespace WebtronicIE\ProductTax;
 
 use Igniter\System\Classes\BaseExtension;
-use Admin\Models\MenusModel;
+use Igniter\Admin\Models\Menus_model;
 use Admin\Controllers\Menus;
-use Override;
 
 class Extension extends BaseExtension
 {
@@ -17,7 +16,7 @@ class Extension extends BaseExtension
          | Extend Menu Model
          |---------------------------------------------
          */
-        MenusModel::extend(function ($model) {
+        Menus_model::extend(function ($model) {
 
             // Allow saving
             $model->addFillable(['vat_rate']);
@@ -34,7 +33,7 @@ class Extension extends BaseExtension
          */
         Menus::extendFormFields(function ($form, $model, $context) {
 
-            if (!$model instanceof MenusModel)
+            if (!$model instanceof Menus_model)
                 return;
 
             $form->addFields([
