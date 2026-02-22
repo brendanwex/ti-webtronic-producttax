@@ -23,7 +23,10 @@ class Extension extends BaseExtension
         Menus_model::extend(function ($model) {
 
             // Allow saving
-            $model->fillable[] = 'vat_rate';
+            $fillable = $model->getFillable();
+            $fillable[] = 'vat_rate';
+
+            $model->setFillable($fillable);
 
             // Make visible in API
             $model->addVisible(['vat_rate']);
