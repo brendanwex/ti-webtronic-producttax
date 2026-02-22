@@ -27,8 +27,8 @@ class Extension extends BaseExtension
             ]);
 
             // Make visible in API
-            $model->addVisible(['vat_rate']);
-            $model->makeVisible(['vat_rate']);
+            //$model->addVisible(['vat_rate']);
+            //$model->makeVisible(['vat_rate']);
         });
 
 
