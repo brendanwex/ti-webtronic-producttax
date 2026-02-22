@@ -38,9 +38,9 @@ class Extension extends BaseExtension
                 return;
 
             $form->addFields([
-                'custom_text' => [
+                'vat_rate' => [
                     'label' => 'VAT Rate',
-                    'type'  => 'currency',
+                    'type'  => 'percentage',
                     'span'  => 'full',
                     'tab'   => 'General',
                 ],
