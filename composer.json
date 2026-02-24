@@ -29,7 +29,7 @@
             "code": "webtronicie.producttax",
             "name": "Webtronic Product Tax",
             "icon": {
-                "image": "fa fa-percent",
+                "class": "fa fa-percent",
                 "backgroundColor": "#39465a",
                 "color": "#FFFFFF"
             },
