@@ -30,8 +30,8 @@
             "name": "Webtronic Product Tax",
             "icon": {
                 "image": "fa fa-percent",
-                "backgroundColor": "#fc0",
-                "color": "#000000"
+                "backgroundColor": "#39465a",
+                "color": "#FFFFFF"
             },
             "homepage": "https://webtronic.ie/"
         },
