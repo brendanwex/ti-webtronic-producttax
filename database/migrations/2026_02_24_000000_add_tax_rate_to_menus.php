@@ -13,8 +13,8 @@ return new class extends Migration {
     {
         Schema::table('menus', function (Blueprint $table) {
             $table->decimal('vat_rate')->nullable();
-            $table->decimal('epos_sku')->nullable();
-            $table->decimal('reporting_category')->nullable();
+            $table->text('epos_sku')->nullable();
+            $table->text('reporting_category')->nullable();
 
         });
     }
