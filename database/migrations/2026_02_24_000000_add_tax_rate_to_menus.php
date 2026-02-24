@@ -12,7 +12,6 @@ return new class extends Migration {
     public function up()
     {
         Schema::table('menus', function (Blueprint $table) {
-            $table->decimal('vat_rate')->nullable();
             $table->text('epos_sku')->nullable();
             $table->text('reporting_category')->nullable();
 
