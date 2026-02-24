@@ -31,6 +31,12 @@ class Extension extends BaseExtension
                     if (isset($data['vat_rate'])) {
                         $model->vat_rate = $data['vat_rate'];
                     }
+                    if (isset($data['epos_sku'])) {
+                        $model->vat_rate = $data['epos_sku'];
+                    }
+                    if (isset($data['reporting_category'])) {
+                        $model->vat_rate = $data['reporting_category'];
+                    }
                 }
 
             });
@@ -48,13 +54,26 @@ class Extension extends BaseExtension
         Menus::extendFormFields(function ($form, $model, $context) {
 
             $form->addTabFields([
+                'epos_sku' => [
+                    'label' => 'EPOS SKU',
+                    'type'  => 'text',
+                    'span'  => 'full',
+                    'tab'   => 'EPOS',
+                ],
                 'vat_rate' => [
                     'label' => 'VAT Rate',
                     'type'  => 'number',
                     'span'  => 'full',
-                    'tab'   => 'VAT',
+                    'tab'   => 'EPOS',
+                ],
+                'reporting_category' => [
+                    'label' => 'Reporting Category',
+                    'type'  => 'text',
+                    'span'  => 'full',
+                    'tab'   => 'EPOS',
                 ],
             ]);
+
         });
     }
 }
