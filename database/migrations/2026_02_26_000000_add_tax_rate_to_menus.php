@@ -11,18 +11,19 @@ return new class extends Migration {
 
     public function up()
     {
-        Schema::table('menus', function (Blueprint $table) {
+        Schema::table('order_menus', function (Blueprint $table) {
             $table->text('epos_sku')->nullable();
             $table->text('reporting_category')->nullable();
+            $table->text('vat_rate')->nullable();
 
         });
 
-
+        
     }
 
     public function down()
     {
-        Schema::table('menus', function (Blueprint $table) {
+        Schema::table('order_menus', function (Blueprint $table) {
             $table->dropColumn('vat_rate');
             $table->dropColumn('epos_sku');
             $table->dropColumn('reporting_category');
