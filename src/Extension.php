@@ -97,6 +97,8 @@ class Extension extends BaseExtension
     }
 
 
+
+    /*
     public function registerApiResources(): array
     {
         return [
@@ -108,4 +110,6 @@ class Extension extends BaseExtension
             ],
         ];
     }
+
+    */
 }
