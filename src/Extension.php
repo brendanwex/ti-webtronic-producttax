@@ -5,19 +5,22 @@ namespace WebtronicIE\ProductTax;
 
 use Igniter\System\Classes\BaseExtension;
 use Igniter\Cart\Models\Menu as Menus_model;
+use Igniter\Cart\Models\Order;
 use Igniter\Cart\Http\Controllers\Menus;
 use WebtronicIE\ProductTax\Classes\ProductTax;
 use Event;
+use Override;
+
 
 class Extension extends BaseExtension
 {
 
-
+    #[Override]
     public function register(): void
     {
         $this->app->singleton(ProductTax::class);
     }
-
+    #[Override]
     public function boot()
     {
         /*
@@ -88,7 +91,7 @@ class Extension extends BaseExtension
 
 
         Event::listen('igniter.checkout.beforePayment', function(Order $order, $data): void {
-            resolve(ProductTax::class->updateOrderItems($order));
+            resolve(ProductTax::class)->updateOrderItems($order);
         });
     }
 }
