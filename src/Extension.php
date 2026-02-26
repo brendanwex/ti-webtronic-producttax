@@ -7,7 +7,6 @@ use Igniter\System\Classes\BaseExtension;
 use Igniter\Cart\Models\Menu as Menus_model;
 use Igniter\Cart\Models\Order;
 use Igniter\Cart\Http\Controllers\Menus;
-use WebtronicIE\ProductTax\ApiResources\EodApi;
 use WebtronicIE\ProductTax\Classes\ProductTax;
 use Event;
 use Override;
@@ -98,18 +97,5 @@ class Extension extends BaseExtension
 
 
 
-    /*
-    public function registerApiResources(): array
-    {
-        return [
-            'eod' => [
-                'name' => 'End Of Day',
-                'description' => 'Creates an endpoint to run an end of day.',
-                'controller' => EodApi::class,
-                'actions' => ['destroy:admin']
-            ],
-        ];
-    }
 
-    */
 }
