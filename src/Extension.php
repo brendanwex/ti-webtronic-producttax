@@ -7,6 +7,7 @@ use Igniter\System\Classes\BaseExtension;
 use Igniter\Cart\Models\Menu as Menus_model;
 use Igniter\Cart\Models\Order;
 use Igniter\Cart\Http\Controllers\Menus;
+use WebtronicIE\ProductTax\ApiResources\EodApi;
 use WebtronicIE\ProductTax\Classes\ProductTax;
 use Event;
 use Override;
@@ -45,10 +46,10 @@ class Extension extends BaseExtension
                         $model->vat_rate = $data['vat_rate'];
                     }
                     if (isset($data['epos_sku'])) {
-                        $model->vat_rate = $data['epos_sku'];
+                        $model->epos_sku = $data['epos_sku'];
                     }
                     if (isset($data['reporting_category'])) {
-                        $model->vat_rate = $data['reporting_category'];
+                        $model->reporting_category = $data['reporting_category'];
                     }
                 }
 
@@ -93,5 +94,18 @@ class Extension extends BaseExtension
         Event::listen('igniter.checkout.beforePayment', function(Order $order, $data): void {
             resolve(ProductTax::class)->updateOrderItems($order);
         });
+    }
+
+
+    public function registerApiResources(): array
+    {
+        return [
+            'menus' => [
+                'name' => 'End Of Day',
+                'description' => 'Creates an endpoint to run an end of day.',
+                'controller' => EodApi::class,
+                'actions' => ['destroy:admin']
+            ],
+        ];
     }
 }
