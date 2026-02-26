@@ -100,7 +100,7 @@ class Extension extends BaseExtension
     public function registerApiResources(): array
     {
         return [
-            'menus' => [
+            'eod' => [
                 'name' => 'End Of Day',
                 'description' => 'Creates an endpoint to run an end of day.',
                 'controller' => EodApi::class,
