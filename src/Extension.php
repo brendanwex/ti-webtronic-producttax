@@ -33,7 +33,7 @@ class Extension extends BaseExtension
 
         Menus_model::extend(function ($model) {
 
-            $model->mergeFillable(['vat_rate']);
+            //$model->mergeFillable(['vat_rate']);
 
             // Force attribute persistence on save
             $model->saving(function ($model) {
