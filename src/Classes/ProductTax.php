@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace WebtronicIE\ProductTax\ClassesOld;
+namespace WebtronicIE\ProductTax\Classes;
 
 use Igniter\Cart\Models\Order;
 use Igniter\Cart\Models\Menu;
