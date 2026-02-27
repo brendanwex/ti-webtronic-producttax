@@ -7,7 +7,7 @@ use Igniter\System\Classes\BaseExtension;
 use Igniter\Cart\Models\Menu as Menus_model;
 use Igniter\Cart\Models\Order;
 use Igniter\Cart\Http\Controllers\Menus;
-use WebtronicIE\ProductTax\Classes\ProductTax;
+use WebtronicIE\ProductTax\ClassesOld\ProductTax;
 use Event;
 use Override;
 
